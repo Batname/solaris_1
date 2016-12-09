@@ -8,7 +8,7 @@
 #include <GLFW/glfw3.h>
 
 // Window dimensions
-const GLint WIDTH = 800, HEIGTH = 600;
+const GLint WIDTH = 800, HEIGHT = 600;
 
 // Shaders
 const GLchar *vertexShaderSource = "#version 330 core\n"
@@ -39,7 +39,7 @@ int main()
     glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
     
     // Create a GLFWwindow object that we can use for GLFW's functions
-    GLFWwindow *window = glfwCreateWindow(WIDTH, HEIGTH, "Learn OPEN GL", nullptr, nullptr);
+    GLFWwindow *window = glfwCreateWindow(WIDTH, HEIGHT, "Learn OPEN GL", nullptr, nullptr);
     
     int screenWidth, screenHeight;
     glfwGetFramebufferSize(window, &screenWidth, &screenHeight);
