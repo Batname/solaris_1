@@ -35,10 +35,11 @@ public:
         mouseSensitivity( SENSITIVTY ),
         zoom( ZOOM )
     {
-        position = position;
-        worldUp = up;
-        pitch = pitch;
-        updateCameraVectors();
+        this->position = position;
+        this->worldUp = up;
+        this->yaw = yaw;
+        this->pitch = pitch;
+        this->updateCameraVectors();
     }
     
     Camera(GLfloat posX, GLfloat posY, GLfloat posZ, GLfloat upX, GLfloat upY, GLfloat upZ, GLfloat yaw, GLfloat pitch) :
@@ -47,11 +48,11 @@ public:
         mouseSensitivity(SENSITIVTY),
         zoom(ZOOM)
     {
-        position = glm::vec3(posX, posY, posZ);
-        worldUp = glm::vec3(upX, upY, upZ);
-        yaw = yaw;
-        pitch = pitch;
-        updateCameraVectors();
+        this->position = glm::vec3(posX, posY, posZ);
+        this->worldUp = glm::vec3(upX, upY, upZ);
+        this->yaw = yaw;
+        this->pitch = pitch;
+        this->updateCameraVectors();
     }
     
     glm::mat4 GetViewMatrix()
@@ -83,7 +84,7 @@ public:
     void ProcessMouseMovement(GLfloat xOffset, GLfloat yOffset, GLboolean constrainPitch = true)
     {
         xOffset *= mouseSensitivity;
-        xOffset *= mouseSensitivity;
+        yOffset *= mouseSensitivity;
         
         yaw += xOffset;
         pitch += yOffset;
@@ -122,7 +123,7 @@ public:
     }
     
 private:
-    // Camera position
+    // Camera Attributes
     glm::vec3 position;
     glm::vec3 front;
     glm::vec3 up;
@@ -146,8 +147,9 @@ private:
         _front.z = sin(glm::radians(yaw)) * cos(glm::radians(pitch));
         
         front = glm::normalize(_front);
-        front = glm::normalize(glm::cross(front, worldUp));
-        up = glm::normalize(glm::cross(right, front));
+
+        right = glm::normalize(glm::cross(_front, worldUp));
+        up = glm::normalize(glm::cross(right, _front));
     }
 };
 
