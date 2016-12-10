@@ -7,6 +7,11 @@
 // GLFW
 #include <GLFW/glfw3.h>
 
+// GLM
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
+
 // Other Libs
 #include "SOIL2/SOIL2.h"
 
@@ -141,6 +146,15 @@ int main( )
         
         // Draw the triangle
         ourShader.Use( );
+        
+        // Create transformations
+        glm::mat4 transform;
+        transform = glm::translate(transform, glm::vec3(0.5f, -0.5f, 0.0f));
+        transform = glm::rotate(transform, (GLfloat)glfwGetTime() * -2.0f, glm::vec3( 0.0f, 0.0f, 1.0f));
+        
+        GLint transformLocation = glGetUniformLocation(ourShader.Program, "transform");
+        glUniformMatrix4fv(transformLocation, 1, GL_FALSE, glm::value_ptr(transform));
+        
         glActiveTexture( GL_TEXTURE0 );
         glBindTexture( GL_TEXTURE_2D, texture );
         glUniform1i( glGetUniformLocation( ourShader.Program, "ourTexture" ), 0 );

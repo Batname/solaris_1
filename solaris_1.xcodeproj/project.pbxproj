@@ -313,6 +313,7 @@
 				HEADER_SEARCH_PATHS = (
 					/usr/local/Cellar/glfw/3.2.1/include,
 					/usr/local/include,
+					usr/local/Cellar/glm/0.9.8.3/include,
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -329,6 +330,7 @@
 				HEADER_SEARCH_PATHS = (
 					/usr/local/Cellar/glfw/3.2.1/include,
 					/usr/local/include,
+					usr/local/Cellar/glm/0.9.8.3/include,
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
