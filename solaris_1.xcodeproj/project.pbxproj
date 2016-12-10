@@ -11,6 +11,7 @@
 		18FFFDAA1DFA979A0067C7BE /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18FFFDA91DFA979A0067C7BE /* OpenGL.framework */; };
 		18FFFDAC1DFA982F0067C7BE /* libGLEW.2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 18FFFDAB1DFA982F0067C7BE /* libGLEW.2.0.0.dylib */; };
 		18FFFDAE1DFA98590067C7BE /* libglfw3.3.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 18FFFDAD1DFA98590067C7BE /* libglfw3.3.2.dylib */; };
+		18FFFDB41DFBFF320067C7BE /* resources in CopyFiles */ = {isa = PBXBuildFile; fileRef = 18FFFDB21DFBFEB70067C7BE /* resources */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,6 +24,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		18FFFDB31DFBFF240067C7BE /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+				18FFFDB41DFBFF320067C7BE /* resources in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +42,8 @@
 		18FFFDA91DFA979A0067C7BE /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		18FFFDAB1DFA982F0067C7BE /* libGLEW.2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.0.0.dylib; path = ../../../../../usr/local/Cellar/glew/2.0.0/lib/libGLEW.2.0.0.dylib; sourceTree = "<group>"; };
 		18FFFDAD1DFA98590067C7BE /* libglfw3.3.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw3.3.2.dylib; path = ../../../../../usr/local/Cellar/glfw/3.2.1/lib/libglfw3.3.2.dylib; sourceTree = "<group>"; };
+		18FFFDB11DFBF6130067C7BE /* Shader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shader.h; sourceTree = "<group>"; };
+		18FFFDB21DFBFEB70067C7BE /* resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = resources; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,7 +80,9 @@
 		18FFFDA01DFA96E50067C7BE /* solaris_1 */ = {
 			isa = PBXGroup;
 			children = (
+				18FFFDB21DFBFEB70067C7BE /* resources */,
 				18FFFDA11DFA96E50067C7BE /* main.cpp */,
+				18FFFDB11DFBF6130067C7BE /* Shader.h */,
 			);
 			path = solaris_1;
 			sourceTree = "<group>";
@@ -92,6 +107,7 @@
 				18FFFD9A1DFA96E50067C7BE /* Sources */,
 				18FFFD9B1DFA96E50067C7BE /* Frameworks */,
 				18FFFD9C1DFA96E50067C7BE /* CopyFiles */,
+				18FFFDB31DFBFF240067C7BE /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -284,6 +300,7 @@
 				18FFFDA71DFA96E50067C7BE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
