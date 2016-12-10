@@ -62,6 +62,7 @@
 		1819FE8C1DFC5AEA005D34F9 /* stbi_pkm_c.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stbi_pkm_c.h; sourceTree = "<group>"; };
 		1819FE8D1DFC5AEA005D34F9 /* stbi_pvr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stbi_pvr.h; sourceTree = "<group>"; };
 		1819FE8E1DFC5AEA005D34F9 /* stbi_pvr_c.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stbi_pvr_c.h; sourceTree = "<group>"; };
+		189EF5001DFC918500D648E6 /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Camera.h; sourceTree = "<group>"; };
 		18FFFD9E1DFA96E50067C7BE /* solaris_1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = solaris_1; sourceTree = BUILT_PRODUCTS_DIR; };
 		18FFFDA11DFA96E50067C7BE /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		18FFFDA91DFA979A0067C7BE /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
@@ -137,6 +138,7 @@
 				18FFFDC01DFC58280067C7BE /* res */,
 				18FFFDA11DFA96E50067C7BE /* main.cpp */,
 				18FFFDB11DFBF6130067C7BE /* Shader.h */,
+				189EF5001DFC918500D648E6 /* Camera.h */,
 			);
 			path = solaris_1;
 			sourceTree = "<group>";

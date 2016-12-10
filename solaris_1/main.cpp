@@ -17,6 +17,7 @@
 
 // Other includes
 #include "Shader.h"
+#include "Camera.h"
 
 // Window dimensions
 const GLuint WIDTH = 800, HEIGHT = 600;
