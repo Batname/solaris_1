@@ -104,17 +104,7 @@ public:
     
     void ProcessMouseScroll(GLfloat yOffset)
     {
-        if (zoom > 1.0f && zoom < 45.0f) {
-            zoom -= yOffset;
-        }
-        
-        if (zoom <= 1.0f) {
-            zoom = 1.0f;
-        }
-        
-        if (zoom  >= 45.0f) {
-            zoom = 45.0f;
-        }
+
     }
     
     GLfloat GetZoom()
