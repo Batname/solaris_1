@@ -117,6 +117,11 @@ public:
         return position;
     }
     
+    glm::vec3 GetFront()
+    {
+        return front;
+    }
+    
 private:
     // Camera Attributes
     glm::vec3 position;
