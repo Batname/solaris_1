@@ -36,7 +36,7 @@ bool firstMouse = true;
 GLfloat deltaTime = 0.0f;
 GLfloat lastFrame = 0.0f;
 
-glm::vec3 lightPos(1.2f, 1.0f, 2.0f);
+glm::vec3 lightPos(1.2f, 1.0f, -2.0f);
 
 // The MAIN function, from here we start the application and run the game loop
 int main( )
@@ -92,7 +92,7 @@ int main( )
     
     // Build and compile our shader program
     Shader lightingShader( "res/shaders/lighting.vs", "res/shaders/lighting.frag" );
-//    Shader lampShader( "res/shaders/lamp.vs", "res/shaders/lam p.frag" );
+    Shader lampShader( "res/shaders/lamp.vs", "res/shaders/lamp.frag" );
     
     // use with Perspective Projection
     GLfloat vertices[] =
@@ -180,7 +180,6 @@ int main( )
     
     glBindVertexArray( 0 ); // Unbind VAO
     
-    /*
     GLuint lightVAO;
     glGenVertexArrays( 1, &lightVAO );
     glGenBuffers( 1, &VBO );
@@ -190,16 +189,16 @@ int main( )
     glBindBuffer( GL_ARRAY_BUFFER, VBO );
     glBufferData( GL_ARRAY_BUFFER, sizeof( vertices ), vertices, GL_STATIC_DRAW );
     
-    // Position attribute
+    //     Position attribute
     glVertexAttribPointer( 0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof( GLfloat ), ( GLvoid * ) 0 );
     glEnableVertexAttribArray(0);
     
-    glBindVertexArray( 0 ); // Unbind VAO
-     */
+    glBindVertexArray( 0 );  //Unbind VAO
     
-    GLuint diffuseMap, specularMap;
+    GLuint diffuseMap, specularMap, emissionMap;
     glGenTextures(1, &diffuseMap);
     glGenTextures(1, &specularMap);
+    glGenTextures(1, &emissionMap);
     
     int textureWidth, textureHeight;
     unsigned char * image;
@@ -258,17 +257,20 @@ int main( )
         
         // Use cooresponding shader when setting uniforms/drawing objects
         lightingShader.Use( );
-//        GLint lightPosLoc = glGetUniformLocation( lightingShader.Program, "light.position" );
-        GLint lightDirLoc = glGetUniformLocation(lightingShader.Program, "light.direction");
+        GLint lightPosLoc = glGetUniformLocation( lightingShader.Program, "light.position" );
+//        GLint lightDirLoc = glGetUniformLocation(lightingShader.Program, "light.direction");
         GLint viewPosLoc = glGetUniformLocation( lightingShader.Program, "viewPos" );
-//        glUniform3f( lightPosLoc, lightPos.x, lightPos.y, lightPos.z );
-        glUniform3f(lightDirLoc, -0.2f, 1.0f, -0.3f);
+        glUniform3f( lightPosLoc, lightPos.x, lightPos.y, lightPos.z );
+//        glUniform3f(lightDirLoc, -0.2f, 1.0f, -0.3 f);
         glUniform3f( viewPosLoc, camera.GetPosition( ).x, camera.GetPosition( ).y, camera.GetPosition( ).z );
         
         // Set lights properties
         glUniform3f( glGetUniformLocation( lightingShader.Program, "light.ambient" ),  0.2f, 0.2f, 0.2f );
         glUniform3f( glGetUniformLocation( lightingShader.Program, "light.diffuse" ),  0.5f, 0.5f, 0.5f );
         glUniform3f( glGetUniformLocation( lightingShader.Program, "light.specular" ), 1.0f, 1.0f, 1.0f );
+        glUniform1f( glGetUniformLocation( lightingShader.Program, "light.constant" ), 1.0f);
+        glUniform1f( glGetUniformLocation( lightingShader.Program, "light.linear" ), 0.09f);
+        glUniform1f( glGetUniformLocation( lightingShader.Program, "light.quadratic" ), 0.032f);
         
         // Set material properties
         glUniform1f( glGetUniformLocation( lightingShader.Program, "material.shininess"), 32.0f );
@@ -309,9 +311,7 @@ int main( )
         }
         glBindVertexArray(0);
         
-        
-        /*
-        // Also draw the lamp object, again binding the appropriate shader
+                // Also draw the lamp object, again binding the appropriate shader
         lampShader.Use( );
         // Get location objects for the matrices on the lamp shader (these could be different on a different shader)
         modelLoc = glGetUniformLocation( lampShader.Program, "model" );
@@ -329,7 +329,6 @@ int main( )
         glBindVertexArray( lightVAO );
         glDrawArrays( GL_TRIANGLES, 0, 36 );
         glBindVertexArray( 0 );
-        */
         
         // Swap the screen buffers
         glfwSwapBuffers( window );
