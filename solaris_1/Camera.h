@@ -112,6 +112,11 @@ public:
         return zoom;
     }
     
+    glm::vec3 GetPosition()
+    {
+        return position;
+    }
+    
 private:
     // Camera Attributes
     glm::vec3 position;
