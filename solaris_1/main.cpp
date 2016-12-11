@@ -223,6 +223,10 @@ int main( )
     // Game loop
     while ( !glfwWindowShouldClose( window ) )
     {
+        
+//        lightPos.x -= 0.005f;
+//        lightPos.z -= 0.005f;
+        
         // Calculate deltatime of current frame
         GLfloat currentFrame = glfwGetTime( );
         deltaTime = currentFrame - lastFrame;
